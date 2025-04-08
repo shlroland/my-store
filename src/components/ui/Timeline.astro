@@ -1,15 +1,15 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { twMerge } from 'tailwind-merge';
-import type { Item } from '~/types';
+import type { Item } from '~/types'
+import { Icon } from 'astro-icon/components'
+import { twMerge } from 'tailwind-merge'
 
 export interface Props {
-  items?: Array<Item>;
-  defaultIcon?: string;
-  classes?: Record<string, string>;
+  items?: Array<Item>
+  defaultIcon?: string
+  classes?: Record<string, string>
 }
 
-const { items = [], classes = {}, defaultIcon } = Astro.props as Props;
+const { items = [], classes = {}, defaultIcon } = Astro.props as Props
 
 const {
   container: containerClass = '',
@@ -28,7 +28,7 @@ const {
           class={twMerge(
             'flex intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
             panelClass,
-            itemClasses?.panel
+            itemClasses?.panel,
           )}
         >
           <div class="flex flex-col items-center mr-4 rtl:mr-0 rtl:ml-4">

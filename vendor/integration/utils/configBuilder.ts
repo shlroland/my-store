@@ -1,90 +1,90 @@
-import merge from 'lodash.merge';
+import type { MetaData } from '~/types'
 
-import type { MetaData } from '~/types';
+import merge from 'lodash.merge'
 
-export type Config = {
-  site?: SiteConfig;
-  metadata?: MetaDataConfig;
-  i18n?: I18NConfig;
+export interface Config {
+  site?: SiteConfig
+  metadata?: MetaDataConfig
+  i18n?: I18NConfig
   apps?: {
-    blog?: AppBlogConfig;
-  };
-  ui?: unknown;
-  analytics?: unknown;
-};
+    blog?: AppBlogConfig
+  }
+  ui?: unknown
+  analytics?: unknown
+}
 
 export interface SiteConfig {
-  name: string;
-  site?: string;
-  base?: string;
-  trailingSlash?: boolean;
-  googleSiteVerificationId?: string;
+  name: string
+  site?: string
+  base?: string
+  trailingSlash?: boolean
+  googleSiteVerificationId?: string
 }
 export interface MetaDataConfig extends Omit<MetaData, 'title'> {
   title?: {
-    default: string;
-    template: string;
-  };
+    default: string
+    template: string
+  }
 }
 export interface I18NConfig {
-  language: string;
-  textDirection: string;
-  dateFormatter?: Intl.DateTimeFormat;
+  language: string
+  textDirection: string
+  dateFormatter?: Intl.DateTimeFormat
 }
 export interface AppBlogConfig {
-  isEnabled: boolean;
-  postsPerPage: number;
-  isRelatedPostsEnabled: boolean;
-  relatedPostsCount: number;
+  isEnabled: boolean
+  postsPerPage: number
+  isRelatedPostsEnabled: boolean
+  relatedPostsCount: number
   post: {
-    isEnabled: boolean;
-    permalink: string;
+    isEnabled: boolean
+    permalink: string
     robots: {
-      index: boolean;
-      follow: boolean;
-    };
-  };
+      index: boolean
+      follow: boolean
+    }
+  }
   list: {
-    isEnabled: boolean;
-    pathname: string;
+    isEnabled: boolean
+    pathname: string
     robots: {
-      index: boolean;
-      follow: boolean;
-    };
-  };
+      index: boolean
+      follow: boolean
+    }
+  }
   category: {
-    isEnabled: boolean;
-    pathname: string;
+    isEnabled: boolean
+    pathname: string
     robots: {
-      index: boolean;
-      follow: boolean;
-    };
-  };
+      index: boolean
+      follow: boolean
+    }
+  }
   tag: {
-    isEnabled: boolean;
-    pathname: string;
+    isEnabled: boolean
+    pathname: string
     robots: {
-      index: boolean;
-      follow: boolean;
-    };
-  };
+      index: boolean
+      follow: boolean
+    }
+  }
 }
 export interface AnalyticsConfig {
   vendors: {
     googleAnalytics: {
-      id?: string;
-      partytown?: boolean;
-    };
-  };
+      id?: string
+      partytown?: boolean
+    }
+  }
 }
 
 export interface UIConfig {
-  theme: string;
+  theme: string
 }
 
-const DEFAULT_SITE_NAME = 'Website';
+const DEFAULT_SITE_NAME = 'Website'
 
-const getSite = (config: Config) => {
+function getSite(config: Config) {
   const _default = {
     name: DEFAULT_SITE_NAME,
     site: undefined,
@@ -92,13 +92,13 @@ const getSite = (config: Config) => {
     trailingSlash: false,
 
     googleSiteVerificationId: '',
-  };
+  }
 
-  return merge({}, _default, config?.site ?? {}) as SiteConfig;
-};
+  return merge({}, _default, config?.site ?? {}) as SiteConfig
+}
 
-const getMetadata = (config: Config) => {
-  const siteConfig = getSite(config);
+function getMetadata(config: Config) {
+  const siteConfig = getSite(config)
 
   const _default = {
     title: {
@@ -113,23 +113,23 @@ const getMetadata = (config: Config) => {
     openGraph: {
       type: 'website',
     },
-  };
+  }
 
-  return merge({}, _default, config?.metadata ?? {}) as MetaDataConfig;
-};
+  return merge({}, _default, config?.metadata ?? {}) as MetaDataConfig
+}
 
-const getI18N = (config: Config) => {
+function getI18N(config: Config) {
   const _default = {
     language: 'en',
     textDirection: 'ltr',
-  };
+  }
 
-  const value = merge({}, _default, config?.i18n ?? {});
+  const value = merge({}, _default, config?.i18n ?? {})
 
-  return value as I18NConfig;
-};
+  return value as I18NConfig
+}
 
-const getAppBlog = (config: Config) => {
+function getAppBlog(config: Config) {
   const _default = {
     isEnabled: false,
     postsPerPage: 6,
@@ -167,20 +167,20 @@ const getAppBlog = (config: Config) => {
         follow: true,
       },
     },
-  };
+  }
 
-  return merge({}, _default, config?.apps?.blog ?? {}) as AppBlogConfig;
-};
+  return merge({}, _default, config?.apps?.blog ?? {}) as AppBlogConfig
+}
 
-const getUI = (config: Config) => {
+function getUI(config: Config) {
   const _default = {
     theme: 'system',
-  };
+  }
 
-  return merge({}, _default, config?.ui ?? {});
-};
+  return merge({}, _default, config?.ui ?? {})
+}
 
-const getAnalytics = (config: Config) => {
+function getAnalytics(config: Config) {
   const _default = {
     vendors: {
       googleAnalytics: {
@@ -188,10 +188,10 @@ const getAnalytics = (config: Config) => {
         partytown: true,
       },
     },
-  };
+  }
 
-  return merge({}, _default, config?.analytics ?? {}) as AnalyticsConfig;
-};
+  return merge({}, _default, config?.analytics ?? {}) as AnalyticsConfig
+}
 
 export default (config: Config) => ({
   SITE: getSite(config),
@@ -200,4 +200,4 @@ export default (config: Config) => ({
   APP_BLOG: getAppBlog(config),
   UI: getUI(config),
   ANALYTICS: getAnalytics(config),
-});
+})

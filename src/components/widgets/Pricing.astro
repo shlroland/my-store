@@ -1,9 +1,9 @@
 ---
-import { Icon } from 'astro-icon/components';
-import Button from '~/components/ui/Button.astro';
-import Headline from '~/components/ui/Headline.astro';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import type { Pricing as Props } from '~/types';
+import type { Pricing as Props } from '~/types'
+import { Icon } from 'astro-icon/components'
+import Button from '~/components/ui/Button.astro'
+import Headline from '~/components/ui/Headline.astro'
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro'
 
 const {
   title = '',
@@ -23,8 +23,8 @@ const {
   <div class="flex items-stretch justify-center">
     <div class="grid grid-cols-3 gap-4 dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
       {
-        prices &&
-          prices.map(({ title, subtitle, price, period, items, callToAction, hasRibbon = false, ribbonTitle }) => (
+        prices
+        && prices.map(({ title, subtitle, price, period, items, callToAction, hasRibbon = false, ribbonTitle }) => (
             <div class="col-span-3 mx-auto flex w-full sm:col-span-1 md:col-span-1 lg:col-span-1 xl:col-span-1 intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter">
               {price && period && (
                 <div class="rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow px-6 py-8 flex w-full max-w-sm flex-col justify-between text-center">
@@ -54,22 +54,24 @@ const {
                             description && (
                               <li class="mb-1.5 flex items-start space-x-3 leading-7">
                                 <div class="rounded-full bg-primary mt-1">
-                                  <Icon name={icon ? icon : 'tabler:check'} class="w-5 h-5 font-bold p-1 text-white" />
+                                  <Icon name={icon || 'tabler:check'} class="w-5 h-5 font-bold p-1 text-white" />
                                 </div>
                                 <span>{description}</span>
                               </li>
-                            )
+                            ),
                         )}
                       </ul>
                     )}
                   </div>
                   {callToAction && (
-                    <div class={`flex justify-center`}>
-                      {typeof callToAction === 'string' ? (
+                    <div class="flex justify-center">
+                      {typeof callToAction === 'string'
+? (
                         <Fragment set:html={callToAction} />
-                      ) : (
-                        callToAction &&
-                        callToAction.href && <Button {...(hasRibbon ? { variant: 'primary' } : {})} {...callToAction} />
+                      )
+: (
+                        callToAction
+                        && callToAction.href && <Button {...(hasRibbon ? { variant: 'primary' } : {})} {...callToAction} />
                       )}
                     </div>
                   )}

@@ -1,18 +1,18 @@
 ---
-import { Icon } from 'astro-icon/components';
+import type { Post } from '~/types'
 
-import Image from '~/components/common/Image.astro';
-import PostTags from '~/components/blog/Tags.astro';
-import SocialShare from '~/components/common/SocialShare.astro';
+import { Icon } from 'astro-icon/components'
+import PostTags from '~/components/blog/Tags.astro'
+import Image from '~/components/common/Image.astro'
 
-import { getPermalink } from '~/utils/permalinks';
-import { getFormattedDate } from '~/utils/utils';
+import SocialShare from '~/components/common/SocialShare.astro'
+import { getPermalink } from '~/utils/permalinks'
 
-import type { Post } from '~/types';
+import { getFormattedDate } from '~/utils/utils'
 
 export interface Props {
-  post: Post;
-  url: string | URL;
+  post: Post
+  url: string | URL
 }
 
 const { post, url } = Astro.props;
@@ -71,7 +71,8 @@ const { post, url } = Astro.props;
       </p>
 
       {
-        post.image ? (
+        post.image
+? (
           <Image
             src={post.image}
             class="max-w-full lg:max-w-[900px] mx-auto mb-6 sm:rounded-md bg-gray-400 dark:bg-slate-700"
@@ -83,7 +84,8 @@ const { post, url } = Astro.props;
             loading="eager"
             decoding="async"
           />
-        ) : (
+        )
+: (
           <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="border-t dark:border-slate-700" />
           </div>

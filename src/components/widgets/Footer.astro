@@ -1,26 +1,26 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { SITE } from 'astrowind:config';
-import { getHomePermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components'
+import { SITE } from 'astrowind:config'
+import { getHomePermalink } from '~/utils/permalinks'
 
 interface Link {
-  text?: string;
-  href?: string;
-  ariaLabel?: string;
-  icon?: string;
+  text?: string
+  href?: string
+  ariaLabel?: string
+  icon?: string
 }
 
 interface Links {
-  title?: string;
-  links: Array<Link>;
+  title?: string
+  links: Array<Link>
 }
 
 export interface Props {
-  links: Array<Links>;
-  secondaryLinks: Array<Link>;
-  socialLinks: Array<Link>;
-  footNote?: string;
-  theme?: string;
+  links: Array<Links>
+  secondaryLinks: Array<Link>
+  socialLinks: Array<Link>
+  footNote?: string
+  theme?: string
 }
 
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
@@ -76,7 +76,8 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
     </div>
     <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
       {
-        socialLinks?.length ? (
+        socialLinks?.length
+? (
           <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
             {socialLinks.map(({ ariaLabel, href, text, icon }) => (
               <li>
@@ -91,7 +92,8 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
               </li>
             ))}
           </ul>
-        ) : (
+        )
+: (
           ''
         )
       }

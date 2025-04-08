@@ -1,9 +1,9 @@
 ---
-import { Icon } from 'astro-icon/components';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Headline from '~/components/ui/Headline.astro';
-import Button from '~/components/ui/Button.astro';
-import type { Steps as Props } from '~/types';
+import type { Steps as Props } from '~/types'
+import { Icon } from 'astro-icon/components'
+import Button from '~/components/ui/Button.astro'
+import Headline from '~/components/ui/Headline.astro'
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro'
 
 const {
   title = await Astro.slots.render('title'),
@@ -37,12 +37,14 @@ const {
 
       <div class="w-full text-center md:text-left rtl:md:text-right">
         {
-          typeof callToAction === 'string' ? (
+          typeof callToAction === 'string'
+? (
             <Fragment set:html={callToAction} />
-          ) : (
-            callToAction &&
-            callToAction.text &&
-            callToAction.href && <Button variant="primary" {...callToAction} class="mb-12 w-auto" />
+          )
+: (
+            callToAction
+            && callToAction.text
+            && callToAction.href && <Button variant="primary" {...callToAction} class="mb-12 w-auto" />
           )
         }
       </div>

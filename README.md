@@ -158,9 +158,9 @@ Basic configuration file: `./src/config.yaml`
 
 ```yaml
 site:
-  name: 'Example'
+  name: Example
   site: 'https://example.com'
-  base: '/' # Change this if you need to deploy to Github Pages, for example
+  base: / # Change this if you need to deploy to Github Pages, for example
   trailingSlash: false # Generate permalinks with or without "/" at the end
 
   googleSiteVerificationId: false # Or some value,
@@ -168,16 +168,16 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: 'Example'
+    default: Example
     template: '%s — Example'
-  description: 'This is the default meta description of Example website'
+  description: This is the default meta description of Example website
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: 'Example'
+    site_name: Example
     images:
-      - url: '~/assets/images/default.png'
+      - url: ~/assets/images/default.png
         width: 1200
         height: 628
     type: website
@@ -203,19 +203,19 @@ apps:
 
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: blog # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
 
     category:
       isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      pathname: category # Category main path /category/some-category, you can change this to "group" (/group/some-category)
       robots:
         index: true
 
     tag:
       isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      pathname: tag # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
       robots:
         index: false
 
@@ -228,7 +228,7 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: system # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 ```
 
 <br>

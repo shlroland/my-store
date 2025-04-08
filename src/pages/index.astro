@@ -1,16 +1,16 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro'
 
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro'
+import Content from '~/components/widgets/Content.astro'
+import FAQs from '~/components/widgets/FAQs.astro'
+import Features2 from '~/components/widgets/Features2.astro'
+import Features from '~/components/widgets/Features.astro'
+import Hero from '~/components/widgets/Hero.astro'
+import Note from '~/components/widgets/Note.astro'
+import Stats from '~/components/widgets/Stats.astro'
+import Steps from '~/components/widgets/Steps.astro'
+import Layout from '~/layouts/PageLayout.astro'
 
 const metadata = {
   title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
@@ -89,7 +89,7 @@ const metadata = {
       {
         title: 'Search Engine Optimization (SEO)',
         description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
+          'SEO lies in its ability to enhance a website\'s visibility, driving organic traffic and enabling it to reach a wider audience.',
         icon: 'tabler:arrows-right-left',
       },
       {
@@ -156,7 +156,7 @@ const metadata = {
       {
         title: 'Fully responsive design',
         description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+          'Ensure your website\'s optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.',
       },
       {
         title: 'Integration of media',
@@ -222,13 +222,13 @@ const metadata = {
       {
         title: 'Step 1: <span class="font-medium">Download</span>',
         description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
+          'Kickstart with GitHub! Either fork the AstroWind template or simply click \'Use this template\'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you\'ve already set the foundation.',
         icon: 'tabler:package',
       },
       {
         title: 'Step 2: <span class="font-medium">Add content</span>',
         description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
+          'Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it\'s the content that tells your story, so make it captivating.',
         icon: 'tabler:letter-case',
       },
       {
@@ -257,13 +257,13 @@ const metadata = {
     items={[
       {
         title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
+        description: 'Ever tried driving without GPS? Boom! That\'s why websites need headers for direction.',
         icon: 'flat-color-icons:template',
       },
       {
         title: 'Heros',
         description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
+          'Picture a superhero landing – epic, right? That\'s the job of a Hero section, making grand entrances!',
         icon: 'flat-color-icons:gallery',
       },
       {
@@ -275,7 +275,7 @@ const metadata = {
       {
         title: 'Content',
         description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
+          'Dive into the meat and potatoes of a site; without it, you\'d just be window shopping. Content is king.',
         icon: 'flat-color-icons:document',
       },
       {
@@ -302,7 +302,7 @@ const metadata = {
       },
       {
         title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
+        description: 'The footer\'s like the credits of a movie but sprinkled with easter eggs. Time to hunt!',
         icon: 'flat-color-icons:database',
       },
     ]}
@@ -333,7 +333,7 @@ const metadata = {
       {
         title: 'Why AstroWind?',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          'Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He\'s a demon on wheels.',
       },
       {
         title: 'What do I need to start?',
@@ -343,22 +343,22 @@ const metadata = {
       {
         title: 'How to install the Astro + Tailwind CSS template?',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          'Well, the way they make shows is, they make one show. That show\'s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they\'re going to make more shows.',
       },
       {
-        title: "What's something that you don't understand?",
+        title: 'What\'s something that you don\'t understand?',
         description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
+          'A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn\'t even know we were calling him Big Bear.',
       },
       {
         title: 'What is something that you would like to try again?',
         description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
+          'A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don\'t know who you\'re talking to, so let me clue you in.',
       },
       {
         title: 'If you could only ask one question to each person you meet, what would that question be?',
         description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+          'This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that\'s certainly good to know. About four years. I got tired of hearing how young I looked.',
       },
     ]}
   />

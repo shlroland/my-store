@@ -1,17 +1,17 @@
 ---
-import merge from 'lodash.merge';
-import { AstroSeo } from '@astrolib/seo';
+import type { Props as AstroSeoProps } from '@astrolib/seo'
+import type { MetaData } from '~/types'
 
-import type { Props as AstroSeoProps } from '@astrolib/seo';
+import { AstroSeo } from '@astrolib/seo'
 
-import { SITE, METADATA, I18N } from 'astrowind:config';
-import type { MetaData } from '~/types';
-import { getCanonical } from '~/utils/permalinks';
+import { I18N, METADATA, SITE } from 'astrowind:config'
+import merge from 'lodash.merge'
+import { adaptOpenGraphImages } from '~/utils/images'
 
-import { adaptOpenGraphImages } from '~/utils/images';
+import { getCanonical } from '~/utils/permalinks'
 
 export interface Props extends MetaData {
-  dontUseTitleTemplate?: boolean;
+  dontUseTitleTemplate?: boolean
 }
 
 const {
@@ -22,13 +22,13 @@ const {
   description,
   openGraph = {},
   twitter = {},
-} = Astro.props;
+} = Astro.props
 
 const seoProps: AstroSeoProps = merge(
   {
     title: '',
     titleTemplate: '%s',
-    canonical: canonical,
+    canonical,
     noindex: true,
     nofollow: true,
     description: undefined,
@@ -53,15 +53,15 @@ const seoProps: AstroSeoProps = merge(
     twitter: METADATA?.twitter,
   },
   {
-    title: title,
+    title,
     titleTemplate: ignoreTitleTemplate ? '%s' : undefined,
-    canonical: canonical,
+    canonical,
     noindex: typeof robots?.index !== 'undefined' ? !robots.index : undefined,
     nofollow: typeof robots?.follow !== 'undefined' ? !robots.follow : undefined,
-    description: description,
+    description,
     openGraph: { url: canonical, ...openGraph },
-    twitter: twitter,
-  }
+    twitter,
+  },
 );
 ---
 

@@ -1,19 +1,19 @@
 ---
-import { APP_BLOG } from 'astrowind:config';
+import type { Widget } from '~/types'
 
-import Grid from '~/components/blog/Grid.astro';
+import { APP_BLOG } from 'astrowind:config'
 
-import { getBlogPermalink } from '~/utils/permalinks';
-import { findPostsByIds } from '~/utils/blog';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import type { Widget } from '~/types';
+import Grid from '~/components/blog/Grid.astro'
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro'
+import { findPostsByIds } from '~/utils/blog'
+import { getBlogPermalink } from '~/utils/permalinks'
 
 export interface Props extends Widget {
-  title?: string;
-  linkText?: string;
-  linkUrl?: string | URL;
-  information?: string;
-  postIds: string[];
+  title?: string
+  linkText?: string
+  linkUrl?: string | URL
+  information?: string
+  postIds: string[]
 }
 
 const {
@@ -27,13 +27,14 @@ const {
   isDark = false,
   classes = {},
   bg = await Astro.slots.render('bg'),
-} = Astro.props;
+} = Astro.props
 
 const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
 ---
 
 {
-  APP_BLOG.isEnabled ? (
+  APP_BLOG.isEnabled
+? (
     <WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container as string} bg={bg}>
       <div class="flex flex-col lg:justify-between lg:flex-row mb-8">
         {title && (
@@ -58,7 +59,8 @@ const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
 
       <Grid posts={posts} />
     </WidgetWrapper>
-  ) : (
+  )
+: (
     <Fragment />
   )
 }

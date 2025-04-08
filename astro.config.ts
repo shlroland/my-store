@@ -1,25 +1,26 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+import type { AstroIntegration } from 'astro'
+import path from 'node:path'
 
-import { defineConfig } from 'astro/config';
+import { fileURLToPath } from 'node:url'
 
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
-import partytown from '@astrojs/partytown';
-import icon from 'astro-icon';
-import compress from 'astro-compress';
-import type { AstroIntegration } from 'astro';
+import mdx from '@astrojs/mdx'
+import partytown from '@astrojs/partytown'
+import sitemap from '@astrojs/sitemap'
+import tailwind from '@astrojs/tailwind'
+import compress from 'astro-compress'
+import icon from 'astro-icon'
+import { defineConfig } from 'astro/config'
 
-import astrowind from './vendor/integration';
+import { lazyImagesRehypePlugin, readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter'
 
-import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
+import astrowind from './vendor/integration'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const hasExternalScripts = false;
-const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
-  hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
+const hasExternalScripts = false
+function whenExternalScripts(items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) {
+  return hasExternalScripts ? (Array.isArray(items) ? items.map(item => item()) : [items()]) : []
+}
 
 export default defineConfig({
   output: 'static',
@@ -32,7 +33,7 @@ export default defineConfig({
     mdx(),
     icon({
       include: {
-        tabler: ['*'],
+        'tabler': ['*'],
         'flat-color-icons': [
           'template',
           'gallery',
@@ -50,7 +51,7 @@ export default defineConfig({
     ...whenExternalScripts(() =>
       partytown({
         config: { forward: ['dataLayer.push'] },
-      })
+      }),
     ),
 
     compress({
@@ -87,4 +88,4 @@ export default defineConfig({
       },
     },
   },
-});
+})
